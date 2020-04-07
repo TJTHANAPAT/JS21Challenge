@@ -106,10 +106,6 @@
             snowBalls.forEach(drawSnowBall);
             snowBalls.forEach(moveSnowBall);
         }, 50)
-
-        /*setInterval(()=>{
-            console.log("Random " + random(0,3))
-        }, 1000)*/
     }
 
     run();
