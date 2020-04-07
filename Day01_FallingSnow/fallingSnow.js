@@ -16,8 +16,8 @@
 
     function createSnowBalls(canvas, numberOfSnowBalls) {
         return [...Array(numberOfSnowBalls)].map(()=>{
-            const speedXmin = -2;
-            const speedXmax = 2;
+            const speedXmin = -3;
+            const speedXmax = 3;
             let speedX = random(speedXmin,speedXmax);
             while(speedX == 0) {
                 speedX = random(speedXmin,speedXmax);
@@ -28,11 +28,11 @@
             return {
                 x: random(0,canvas.width),
                 y: random(0,canvas.height),
-                opacity: random(0.5,1),
-                radius: random(4,50),
+                opacity: Math.random(),
+                radius: random(15,100),
                 speedX: speedX,
                 speedY: random(-2,-1),
-                color: random(0,2)
+                color: random(0,3)
             }
         });
     }
@@ -49,11 +49,13 @@
             );
             
             if (snowBall.color === 0) {
-                canvasContext.fillStyle = `rgba(0, 255, 166, ${snowBall.opacity})`;
+                canvasContext.fillStyle = `rgba(255, 51, 0, ${snowBall.opacity})`; //red
             } else if(snowBall.color === 1) {
-                canvasContext.fillStyle = `rgba(255, 0, 72, ${snowBall.opacity})`;
+                canvasContext.fillStyle = `rgba(30, 199, 120, ${snowBall.opacity})`; //green
             } else if(snowBall.color === 2) {
-                canvasContext.fillStyle = `rgba(0, 119, 255, ${snowBall.opacity})`;
+                canvasContext.fillStyle = `rgba(0, 166, 255, ${snowBall.opacity})`; //blue
+            } else if(snowBall.color === 3) {
+                canvasContext.fillStyle = `rgba(255, 233, 64, ${snowBall.opacity})`; //yellow
             }
             canvasContext.fill();
         };
@@ -64,10 +66,18 @@
             snowBall.x += snowBall.speedX;
             snowBall.y += snowBall.speedY;
 
-            if (snowBall.x - snowBall.radius > canvas.width) {
+            //NormalMover (No Bounce)
+            /*if (snowBall.x - snowBall.radius > canvas.width) {
                 snowBall.x = - snowBall.radius;
             } else if (snowBall.x + snowBall.radius < 0) {
                 snowBall.x = canvas.width + snowBall.radius;
+            }*/
+
+            //Bounce SnowBall when it reaches edge
+            if ((snowBall.speedX > 0) && (snowBall.x + snowBall.radius > canvas.width)) {
+                snowBall.speedX = -snowBall.speedX;
+            } else if ((snowBall.speedX < 0) && (snowBall.x - snowBall.radius < 0)) {
+                snowBall.speedX = -snowBall.speedX;
             }
             
             if (snowBall.y - snowBall.radius > canvas.height) {
