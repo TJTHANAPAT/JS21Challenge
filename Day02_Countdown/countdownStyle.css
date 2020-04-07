@@ -1,0 +1,36 @@
+html{
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+    min-height: 100vh;
+    padding: 0 20px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: monospace;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+h1 {
+    font-size: 42px;
+}
+
+.countdown {
+    display: flex;
+}
+.countdown div {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+}
+.countdown span {
+    display: block;
+}
+.countdown .number {
+    font-size: 32px;
+}
