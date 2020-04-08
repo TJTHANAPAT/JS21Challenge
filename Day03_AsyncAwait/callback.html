@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS21 Day03 - AsyncAwait</title>
+</head>
+<body>
+    <h1>Callback</h1>
+    <p>Callback help to excute code in order. The command runs after the before command has finished.</p>
+    <p>Open Console to see what happen.</p>
+    <code>
+        function doSth(parem, callback){<br>
+            &emsp;doSthWithParem(parem)<br>
+            &emsp;callback()<br>
+        }<br><br>
+        doSth(doThisFirst,()=>{<br>
+            &emsp;doSth(doThisSecond,()=>{<br>
+                &emsp;&emsp;doSth(doThisLast,()=>{})<br>
+            &emsp;})<br>
+        })<br>
+    </code>
+    <p><span id='stopwatch'></span> sec has passed.</p>
+    <a href="javascript:history.back()">Back</a>
+    <script src="callback.js"></script>
+</body>
+</html>

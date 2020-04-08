@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS21 Day03 - AsyncAwait</title>
+</head>
+<body>
+    <h1>Promise</h1>
+    <p>Promise, like Callback, help to excute code in order. It fixes 'Callback Hell' problem.</p>
+    <p>Open Console to see what happen.</p>
+    <code>
+        function doSth(parem){<br>
+            &emsp;return new Promise((resolve, reject) => {<br>
+                &emsp;&emsp;if(condition) {<br>
+                    &emsp;&emsp;&emsp;reject(error)<br>
+                &emsp;&emsp;}<br>
+                &emsp;&emsp;doSthWithParem(parem)<br>
+                &emsp;&emsp;resolve()<br>
+            &emsp;}<br>
+        }<br><br>
+        doSth(doThisFirst)<br>
+            &emsp;.then(()=>{<br>
+                &emsp;&emsp;return doSth(doThisSecond)<br>
+            &emsp;})<br>
+            &emsp;.then(()=>{<br>
+                &emsp;&emsp;return doSth(doThisLast)<br>
+            &emsp;})<br>
+            &emsp;.catch((error)=>{<br>
+                &emsp;&emsp;console.error(error)<br>
+            &emsp;})<br>
+    </code>
+    <p><span id='stopwatch'></span> sec has passed.</p>
+    <a href="javascript:history.back()">Back</a>
+    <script src="promise.js"></script>
+</body>
+</html>
