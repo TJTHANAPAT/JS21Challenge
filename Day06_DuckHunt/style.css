@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+html, body {margin: 0; height: 100%; overflow: hidden}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  font-family: 'Press Start 2P', cursive;
+}
+
+#scene {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.ground {
+  background: url('./scene.png') repeat-x fixed bottom;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.sky {
+  background: linear-gradient(to bottom, #4a4969 0%,#7072ab 50%,#cd82a0 100%);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.winning {
+  color: #FFF;
+  font-size: 3em;;
+  text-transform: uppercase;
+  z-index: 1;
+}
+#start {
+  text-align: center;
+  color: #FFF;
+  text-transform: uppercase;
+  opacity: 1;
+  z-index: 1;
+}
+
+#start p {
+  line-height: 1.5;
+}
+
+.start-btn {
+  margin-top: 100px;
+}
+.start-btn:hover {
+  letter-spacing: 5px;
+  cursor: pointer;
+}
+
+
+
+.duck {
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: crosshair;
+  position: absolute;
+}
